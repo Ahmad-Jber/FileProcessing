@@ -2,5 +2,6 @@
 {
     public class InsertFileDto
     {
+        public byte[]? Data { get; set; }
     }
 }
