@@ -2,8 +2,8 @@
 {
     public class CFile
     {
-        public int Id { get; set; }
+        public int Id;
         public string? Name { get; set; }
-        public byte[]? Data { get; set; }
+        public string Data { get; set; }
     }
 }

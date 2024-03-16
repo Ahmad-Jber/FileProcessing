@@ -9,14 +9,14 @@ namespace FileProcessing.FileData.Repositories
         private readonly DBContext _dBContext;
         public FileRepository(DBContext dBContext)
         {
-            this._dBContext = dBContext;
+            _dBContext = dBContext;
         }
         public async Task<CFile> GetFile(int id)
         {
             return await _dBContext.Files.SingleOrDefaultAsync(f => f.Id == id);
         }
 
-        public async Task<List<CFile>> GetFiles()
+        public async Task<List<CFile>> GetAllFiles()
         {
             return await _dBContext.Files.ToListAsync();
         }
@@ -24,14 +24,6 @@ namespace FileProcessing.FileData.Repositories
         public async Task InsertFile(CFile file)
         {
             await _dBContext.Files.AddAsync(file);
-        }
-
-        public async Task InsertFiles(List<CFile> files)
-        {
-            foreach (CFile file in files)
-            {
-                await InsertFile(file);
-            }
         }
     }
 }
